@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Header = () => {
-  return <h1>Northcoders Student Tracker!</h1>;
+  return (
+    <div className="header-container">
+      <h1>Northcoders Student Tracker!</h1>
+    </div>
+  );
 };
 
 export default Header;

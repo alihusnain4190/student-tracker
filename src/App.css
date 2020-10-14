@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-container {
+  max-height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: steelblue;
+  border: 2px solid black;
+}
+
+.router {
+  min-height: 80vh;
+  height: 100%;
+}
+
+.footer-container {
+  max-height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: firebrick;
+  color: white;
+  border: 2px solid black;
+}

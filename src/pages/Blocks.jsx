@@ -2,16 +2,25 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 const Blocks = () => {
-  return <ul>
-    <Link to='blocks/fundamentals'><li>Fundamentals  </li></Link>  
-  
-    <Link to='blocks/backend'><li>Backend</li></Link> 
-    
-    <Link to='blocks/frontend'><li>Frontend</li></Link>  
-    
-  <Link to='blocks/project'><li>Project block</li></Link>  
-  <Link to='blocks/graduate'><li>Graduated</li></Link>  
-  </ul>;
+  return (
+    <ul>
+      <li>
+        <Link to={`/blocks/${'fun'}/students`}>Fundamentals</Link>{' '}
+      </li>
+      <li>
+        <Link to={`/blocks/${'be'}/students`}>Backend</Link>
+      </li>
+      <li>
+        <Link to={`/blocks/${'fe'}/students`}>Frontend</Link>
+      </li>
+      <li>
+        <Link to={`/blocks/${'proj'}/students`}>Project block</Link>
+      </li>
+      <li>
+        <Link to={`/blocks/${'grad'}/students`}>Graduated</Link>
+      </li>
+    </ul>
+  );
 };
 
 export default Blocks;

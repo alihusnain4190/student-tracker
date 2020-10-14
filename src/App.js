@@ -8,19 +8,19 @@ import Students from './pages/Students';
 import Student from './pages/Student';
 import Graduates from './pages/Graduates';
 import Blocks from './pages/Blocks';
-import StudentsInBlock from './pages/StudentsInBlock'
+import StudentsInBlock from './pages/StudentsInBlock';
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
-      <Router>
+      <Router className="router">
         <Home path="/" />
         <Students path="/students" />
         <Student path="/students/:student_id" />
         <Graduates path="/graduates" />
         <Blocks path="/blocks" />
-        <StudentsInBlock  path="/blocks/:block_name"/>
+        <StudentsInBlock path="/blocks/:block_name/students" />
       </Router>
       <Footer />
     </div>
