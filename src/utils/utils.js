@@ -1,7 +1,6 @@
 exports.formatBlockArr = (array) => {
   const blockCountObj = {};
   array.forEach((block) => {
-    console.log(block);
     if (blockCountObj.hasOwnProperty(block.name)) {
       blockCountObj[block.name]++;
     } else {
