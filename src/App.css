@@ -16,9 +16,35 @@
   border: 2px solid black;
 }
 
+.home-container {
+  margin-left: 5vw;
+}
+
+ul {
+  list-style: none;
+}
+
+.home-info {
+  margin-top: 5vh;
+}
+
 .router {
   min-height: 80vh;
   height: 100%;
+}
+
+.student-card {
+  margin: 13px;
+}
+
+.student-container {
+  margin-left: 5vw;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .footer-container {

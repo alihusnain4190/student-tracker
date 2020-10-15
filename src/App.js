@@ -8,7 +8,6 @@ import Students from './pages/Students';
 import Student from './pages/Student';
 import Graduates from './pages/Graduates';
 import Blocks from './pages/Blocks';
-import StudentsInBlock from './pages/StudentsInBlock';
 
 function App() {
   return (
@@ -19,8 +18,7 @@ function App() {
         <Students path="/students" />
         <Student path="/students/:student_id" />
         <Graduates path="/graduates" />
-        <Blocks path="/blocks" />
-        <StudentsInBlock path="/blocks/:block_name/students" />
+        <Blocks path="/blocks/*" />
       </Router>
       <Footer />
     </div>

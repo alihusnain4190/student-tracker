@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+const { formatBlockArr } = require('../utils/utils');
 
 class Student extends React.Component {
   state = {
@@ -15,11 +16,17 @@ class Student extends React.Component {
         const { name, blockHistory, startingCohort } = response.data.student;
 
         this.setState({
-          student: { name, blockHistory, startingCohort },
+          student: {
+            name,
+            blockHistory,
+            startingCohort,
+          },
           isLoading: false,
+          blockCount: formatBlockArr(response.data.student.blockHistory),
         });
       });
   }
+
   render() {
     return this.state.isLoading ? (
       <p>Page is currently loading...</p>
@@ -28,8 +35,8 @@ class Student extends React.Component {
         <p>Student Name: {this.state.student.name}</p>
         <p>Starting Cohort: {this.state.student.startingCohort}</p>
         <ul>
-          {this.state.student.blockHistory.map((bHistory, index) => {
-            return <li key={index}>{bHistory.name}</li>;
+          {this.state.blockCount.map((bHistory, index) => {
+            return <li key={index}>{bHistory}</li>;
           })}
         </ul>
       </div>
