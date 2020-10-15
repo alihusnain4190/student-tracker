@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import StudentList from '../components/StudentList';
 
 class StudentsInBlock extends React.Component {
   state = {
     students: [],
     isLoading: true,
-    totalNumberStudent:0
+    totalNumberStudent: 0,
   };
 
   componentDidMount() {
@@ -14,7 +15,11 @@ class StudentsInBlock extends React.Component {
         `https://nc-student-tracker.herokuapp.com/api/students?block=${this.props.block_name}`
       )
       .then((response) => {
-        this.setState({ students: response.data.students, isLoading: false,totalNumberStudent: response.data.students.length });
+        this.setState({
+          students: response.data.students,
+          isLoading: false,
+          totalNumberStudent: response.data.students.length,
+        });
       });
   }
 
@@ -25,7 +30,11 @@ class StudentsInBlock extends React.Component {
           `https://nc-student-tracker.herokuapp.com/api/students?block=${this.props.block_name}`
         )
         .then((response) => {
-          this.setState({ students: response.data.students, isLoading: false ,totalNumberStudent: response.data.students.length});
+          this.setState({
+            students: response.data.students,
+            isLoading: false,
+            totalNumberStudent: response.data.students.length,
+          });
         });
     }
   }
@@ -34,22 +43,11 @@ class StudentsInBlock extends React.Component {
     return this.state.isLoading ? (
       <p>Page is currently loading...</p>
     ) : (
-        <div>
-        <h4>Total Student: {this.state.totalNumberStudent}</h4>
-      <ul>
-        {this.state.students.map(({ _id, startingCohort, name }) => {
-          return (
-            <li key={_id}>
-              {name}
-              <br />
-              Starting Cohort: {startingCohort}
-            </li>
-          );
-        })}
-      </ul>
-      </div>
+      <StudentList
+        listArray={this.state.students}
+        studentTotal={this.state.totalNumberStudent}
+      />
     );
-          
   }
 }
 export default StudentsInBlock;

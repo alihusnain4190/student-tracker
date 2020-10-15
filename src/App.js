@@ -4,9 +4,8 @@ import { Router } from '@reach/router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Students from './pages/Students';
 import Student from './pages/Student';
-import Graduates from './pages/Graduates';
+import StudentDisplayer from './pages/StudentDisplayer';
 import Blocks from './pages/Blocks';
 
 function App() {
@@ -15,9 +14,13 @@ function App() {
       <Header />
       <Router className="router">
         <Home path="/" />
-        <Students path="/students" />
+        <StudentDisplayer path="/students" />
         <Student path="/students/:student_id" />
-        <Graduates path="/graduates" />
+        <StudentDisplayer
+          path="/graduates"
+          query={'graduated'}
+          value={'true'}
+        />
         <Blocks path="/blocks/*" />
       </Router>
       <Footer />
