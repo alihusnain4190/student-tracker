@@ -5,6 +5,7 @@ class StudentsInBlock extends React.Component {
   state = {
     students: [],
     isLoading: true,
+    totalNumberStudent:0
   };
 
   componentDidMount() {
@@ -13,7 +14,7 @@ class StudentsInBlock extends React.Component {
         `https://nc-student-tracker.herokuapp.com/api/students?block=${this.props.block_name}`
       )
       .then((response) => {
-        this.setState({ students: response.data.students, isLoading: false });
+        this.setState({ students: response.data.students, isLoading: false,totalNumberStudent: response.data.students.length });
       });
   }
 
@@ -24,7 +25,7 @@ class StudentsInBlock extends React.Component {
           `https://nc-student-tracker.herokuapp.com/api/students?block=${this.props.block_name}`
         )
         .then((response) => {
-          this.setState({ students: response.data.students, isLoading: false });
+          this.setState({ students: response.data.students, isLoading: false ,totalNumberStudent: response.data.students.length});
         });
     }
   }
@@ -33,6 +34,8 @@ class StudentsInBlock extends React.Component {
     return this.state.isLoading ? (
       <p>Page is currently loading...</p>
     ) : (
+        <div>
+        <h4>Total Student: {this.state.totalNumberStudent}</h4>
       <ul>
         {this.state.students.map(({ _id, startingCohort, name }) => {
           return (
@@ -44,7 +47,9 @@ class StudentsInBlock extends React.Component {
           );
         })}
       </ul>
+      </div>
     );
+          
   }
 }
 export default StudentsInBlock;

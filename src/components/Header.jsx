@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link,Router } from '@reach/router';
 
 const Header = () => {
   return (
     <div className="header-container">
       <h1>Northcoders Student Tracker!</h1>
+      <ul>
+          <li><Link to="/">Home</Link></li>
+        <li><Link to="/students">Students</Link></li>
+        <li><Link to="/blocks">Blocks</Link></li>
+          <li><Link to="/graduates">Graduates</Link></li>
+ 
+      </ul>
     </div>
   );
 };

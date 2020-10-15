@@ -8,13 +8,14 @@ class Students extends React.Component {
   state = {
     students: [],
     isLoading: true,
+    totalNumberStudent:0
   };
 
   componentDidMount() {
     axios
       .get('https://nc-student-tracker.herokuapp.com/api/students')
       .then((res) => {
-        this.setState({ students: res.data.students, isLoading: false });
+        this.setState({ students: res.data.students, isLoading: false,totalNumberStudent: res.data.students.length });
       });
   }
 
@@ -25,7 +26,7 @@ class Students extends React.Component {
         `https://nc-student-tracker.herokuapp.com/api/students?sort_by=${value}`
       )
       .then((response) => {
-        this.setState({ students: response.data.students, isLoading: false });
+        this.setState({ students: response.data.students, isLoading: false,totalNumberStudent: response.data.students.length  });
       });
   };
 
@@ -36,15 +37,16 @@ class Students extends React.Component {
       <div className="student-container">
         <div className="sort-container">
           <label htmlFor="sortSelector">
-            Filter by:
+            Sort by:
             <select onChange={this.handleChange} id="sortSelector" required>
               <option value="">--Please select an option--</option>
-              <option value="name">Sort by name</option>
-              <option value="startingCohort">Sort by starting cohort</option>
+              <option value="name">name</option>
+              <option value="startingCohort">starting cohort</option>
             </select>
           </label>
         </div>
-        <h3>Students:</h3>
+          <h3>Students:</h3>
+          <h4>Total Student:  {this.state.totalNumberStudent}</h4>
         <ul>
           {this.state.students.map((student) => {
             return (
