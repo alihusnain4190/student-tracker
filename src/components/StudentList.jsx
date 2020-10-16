@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from '@reach/router';
-
+import { Link ,Router} from '@reach/router';
+import ToggleView from './ToggleView'
+import Student from '../pages/Student'
+import StudentAdd from './StudentAdd'
 const StudentList = (props) => {
+
   return (
     <div>
+    <StudentAdd></StudentAdd>
       <h4>Total Student: {props.studentTotal}</h4>
       <ul>
         {props.listArray.map((student) => {
@@ -18,6 +22,10 @@ const StudentList = (props) => {
           );
         })}
       </ul>
+      <Router>
+      {/* <StudentsInBlock path="/:block_name/students" /> */}
+      <Student path="/:student_id" />
+      </Router>
     </div>
   );
 };

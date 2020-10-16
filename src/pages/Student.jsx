@@ -26,8 +26,29 @@ class Student extends React.Component {
         });
       });
   }
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      axios
+        .get(
+          `https://nc-student-tracker.herokuapp.com/api/students/${this.props.student_id}`
+        )
+        .then((response) => {
+          const { name, blockHistory, startingCohort } = response.data.student;
 
+          this.setState({
+            student: {
+              name,
+              blockHistory,
+              startingCohort,
+            },
+            isLoading: false,
+            blockCount: formatBlockArr(response.data.student.blockHistory),
+          });
+        });
+    }
+}
   render() {
+    console.log(this.props);
     return this.state.isLoading ? (
       <p>Page is currently loading...</p>
     ) : (

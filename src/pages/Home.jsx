@@ -7,6 +7,7 @@ const Home = () => {
       <h2>Welcome to the Northcoders Student Tracker!</h2>
       <p className="home-info">See below for available endpoints:</p>
       <ul className="home-info">
+      
         <Link to="/students">
           <li>Students</li>
         </Link>
