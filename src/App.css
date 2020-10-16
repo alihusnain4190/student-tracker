@@ -10,10 +10,26 @@
 .header-container {
   max-height: 12vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: steelblue;
   border: 2px solid black;
+}
+.container__list{
+  display: flex;
+  justify-content: space-between;
+text-align: center;
+
+}
+.container__list li{
+  padding: 1rem;
+  margin-left: 1rem;
+  color: whitesmoke;
+}
+
+.container__list li:hover{
+  color: white;
+  background-color: blueviolet;
 }
 
 .home-container {
@@ -32,11 +48,23 @@ ul {
   min-height: 80vh;
   height: 100%;
 }
-
-.student-card {
-  margin: 13px;
+a{
+  text-decoration: none;
+}
+table{
+  margin: auto;
+}
+tr.border{
+  outline: thin solid;
+  line-height: 2;
+}
+table td:first-child {
+  border-right: thin solid;
 }
 
+table td:nth-child(2) {
+  border-right: thin solid;
+}
 .student-container {
   margin-left: 5vw;
 }

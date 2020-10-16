@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <h1>Northcoders Student Tracker!</h1>
-      <ul>
+      <ul className="container__list">
         <li>
           <Link to="/">Home</Link>
         </li>

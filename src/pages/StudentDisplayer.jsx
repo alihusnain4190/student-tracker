@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import StudentList from '../components/StudentList';
-
+import { Router } from '@reach/router';
+import Student from './Student'
 class StudentDisplayer extends React.Component {
   state = {
     students: [],
@@ -98,7 +99,11 @@ class StudentDisplayer extends React.Component {
         <StudentList
           listArray={this.state.students}
           studentTotal={this.state.totalNumberStudent}
-        />
+          />
+          <Router>
+
+        <Student path="/:student_id" />
+          </Router>
       </div>
     );
   }

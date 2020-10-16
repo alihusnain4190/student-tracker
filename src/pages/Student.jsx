@@ -48,7 +48,6 @@ class Student extends React.Component {
     }
 }
   render() {
-    console.log(this.props);
     return this.state.isLoading ? (
       <p>Page is currently loading...</p>
     ) : (
