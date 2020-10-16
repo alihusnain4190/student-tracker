@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Student from './pages/Student';
 import StudentDisplayer from './pages/StudentDisplayer';
 import Blocks from './pages/Blocks';
+import DefaultRoute from './pages/DefaultRoute';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           value={'true'}
         />
         <Blocks path="/blocks/*" />
+        <DefaultRoute default />
       </Router>
       <Footer />
     </div>
